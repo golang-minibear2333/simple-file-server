@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FTP Server</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">FTP Server</h1>
+    <h2 class="mt-5">Upload File</h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">Choose File</label>
+            <input class="form-control" type="file" name="file" id="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <h2 class="mt-5">File List</h2>
+    <ul>
+        {{range .Files}}
+        <li><a href="/download/{{.}}" class="text-decoration-none">{{.}}</a></li>
+        {{end}}
+    </ul>
+</div>
+</body>
+</html>
